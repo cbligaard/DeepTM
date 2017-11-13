@@ -18,7 +18,7 @@ The model of choice for this problem was a bidirectional recurrent neural networ
 On top of this model, we average the probabilities of each category over the entire amino acid sequence length and have another two dense layers, and finally we use the sigmoid function to predict the protein type.
 
 Inline-style: 
-![alt text](https://github.com/cbligaard/DeepTM/master/images/model.png "Model setup. Red boxes represent the layers of the neural network, while the grey boxes represent functions used to derive the actual predictions.")
+![Model setup](https://github.com/cbligaard/DeepTM/master/model.png "Model setup. Red boxes represent the layers of the neural network, while the grey boxes represent functions used to derive the actual predictions.")
 
 
 The loss function for the first part of the prediction (protein topology) is '-log_likelihood' if the CRF is used and the 'weighted cross-entropy loss for a sequence of logits' if not. The loss function for the second part of the prediction (protein type) is the 'sigmoid cross entropy'. In the end, the two losses are summed and the Adam algorithm is used as the optimizer to minimize the loss. 
