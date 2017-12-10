@@ -39,8 +39,7 @@ Initial tests showed that using 60 units in the LSTM cells and relu as an activa
 
 After training, the model with the lowest validation loss was selected for runs with and without the CRF, and these models were tested on the test partition. 
 
-<br><br>
-
+<br>
 ### Files in this repository
 #### Scripts for training and testing the model
 1. training.py (maybe also as ipython notebook)
