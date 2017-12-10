@@ -28,10 +28,10 @@ On top of this model, we average the probabilities of each category over the ent
 The loss function for the first part of the prediction (protein topology) is '-log_likelihood' if the CRF is used, and the 'weighted cross-entropy loss for a sequence of logits' if not. The loss function for the second part of the prediction (protein type) is the 'softmax cross entropy'. In the end, the two losses are summed and the Adam algorithm is used as the optimizer to minimize the loss. 
 
 #### Data
-The data used for this project was the TOPCONS2-data downloaded from [here](http://topcons.net/pred/download/). The data consisted of 6,856 proteins, but to ensure computational efficiency, we removed proteins longer than 2,000 amino acids (n = 123), and as a result we have a dataset of 6733 proteins in total. These were divided into five partitions maintaining the same proportion of each class and the same length distribution as the full dataset. Proteins with more than 30 % homology were placed within a single partition (homology partitioning). The dataset contained 2,171 SP+Glob-proteins, 718 SP+TM, 313 TM and 3,531 Glob.
+The data used for this project was the TOPCONS2-data downloaded from [here](http://topcons.net/pred/download/). The data consisted of 6,856 proteins, but to ensure computational efficiency, we removed proteins longer than 2,000 amino acids (n = 123), and as a result we have a dataset of 6,733 proteins in total. These were divided into five partitions maintaining the same proportion of each class and the same length distribution as the full dataset. Proteins with more than 30 % homology were placed within a single partition (homology partitioning). The dataset contained 2,171 SP+Glob-proteins, 718 SP+TM, 313 TM and 3,531 Glob.
 
 #### Training, validating and testing
-For training, validating and testing the model, a setup was made in which 3 partitions were used for training, 1 was used for validation, and 1 was used for testing. During training, which typically ran for 1000 epochs, the model was validated every 10 epochs - and each time the validation loss decreased, the model was saved. 
+For training, validating and testing the model, a setup was made in which 3 partitions were used for training, 1 was used for validation, and 1 was used for testing. During training, which typically ran for 1,000 epochs, the model was validated every 10 epochs - and each time the validation loss decreased, the model was saved. 
 Initial tests showed that using 60 units in the LSTM cells and relu as an activation function for the type-prediction, yielded good results. These settings were fixed and a grid search was performed for the following hyper-parameter value combinations (a total of 64 runs):<br>
 1. With and without the CRF
 1. Batch size = 16, 32, 64 or 128
@@ -39,7 +39,7 @@ Initial tests showed that using 60 units in the LSTM cells and relu as an activa
 
 After training, the model with the lowest validation loss was selected for runs with and without the CRF, and these models were tested on the test partition. 
 
-
+<br><br>
 
 ### Files in this repository
 #### Scripts for training and testing the model
