@@ -1,7 +1,7 @@
 # DeepTM
 ### A deep learning setup for prediction of protein transmembrane helices
 
-*Project, 02456 Deep Learning*<br>
+*Project, 02456 Deep Learning, Technical University of Denmark*<br>
 Christina Bligaard Pedersen (s134891), Dea Steenstrup (s123870), Emma Christine Jappe (s102240) & Rasa Audange Muktupavela (s161197)
 
 ### Welcome to the repository for the DeepTM project!
@@ -39,9 +39,18 @@ Initial tests showed that using 60 units in the LSTM cells and relu as an activa
 
 After training, the model with the lowest validation loss was selected for runs with and without the CRF, and these models were tested on the test partition. 
 
-### Scripts
-1. training.py
+### Files in this repository
+#### Scripts for training and testing the model
+1. training.py (maybe also as ipython notebook)
 1. model.py
-1. createMiniBatches.py
+1. minibatches.py
+1. confidence_plot.py
+1. conf_matrix.py
+1. plots.py
 1. crf.py
 1. marginal_probabilities.py
+1. testing_model.ipynb (Jupyter notebook file for recreating the main results of this study)
+
+#### Saved models (generated from selected training runs)
+1. XXX
+1. XXX
