@@ -42,6 +42,9 @@ After training, the model with the lowest validation loss was selected for runs 
 <br>
 
 ### Files in this repository
+#### Data
+* data_tm.npz
+
 #### Scripts for training and testing the model
 1. training.py (maybe also as ipython notebook)
 1. model.py
