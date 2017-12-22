@@ -45,7 +45,7 @@ After training, the model with the lowest validation loss was selected for runs 
 #### Data
 * data_tm.npz
 
- As a result our data consists of 7 matrices: BLOSUM62-encoded proteins (matrix size 6733x2000x23). Protein labels per amino acid (matrix size 6733x2000), the labels are: Membrane in $\rightarrow$ out, Membrane out $\rightarrow$ in, Signal peptide, Inside, Outside. Protein lengths (size 6733). Sequence mask - padding for all proteins shorter than 2000 amino acids (matrix size 6733x2000), 1 for positions within the protein length and 0 for padded positions. Protein type (size 6733), the types are: Globular with signal peptide, TM with signal peptide, TM, and globular. Partitioning fold (size 6733), values from 0 to 4. Protein id numbers (size 6733). Fig. \ref{fig:type} shows the type distribution of proteins in the dataset.
+The data file contains 7 matrices: 1) BLOSUM62-encoded proteins (matrix size 6733x2000x23), 2) Protein labels per amino acid (matrix size 6733x2000), the labels are: Membrane in $\rightarrow$ out, Membrane out $\rightarrow$ in, Signal peptide, Inside, Outside, 3) Protein lengths (size 6733), 4) Sequence mask - padding for all proteins shorter than 2000 amino acids (matrix size 6733x2000), 1 for positions within the protein length and 0 for padded positions, 5) Protein type (size 6733), the types are: Globular with signal peptide, TM with signal peptide, TM, and globular, 6) Partitioning fold (size 6733), values from 0 to 4, and 7) Protein id numbers (size 6733). Fig. \ref{fig:type} shows the type distribution of proteins in the dataset.
 
 
 #### Scripts for training and testing the model
