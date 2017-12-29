@@ -60,5 +60,5 @@ The data file contains 7 matrices: 1) BLOSUM62-encoded proteins (matrix size 673
 1. testing_model.ipynb (Jupyter notebook file for recreating the main results of this study)
 
 #### Saved models (generated from selected training runs)
-1. XXX
-1. XXX
+1. lr_0.001_crf_False_batch_16_model
+1. lr_0.01_crf_True_batch_32_model
