@@ -49,8 +49,8 @@ def confidence_plot(seq_pred, seq_true, seq_conf, type_pred, type_true, type_con
     plt.plot()
     plt.axis('off')
     plt.xlim(1, 5)
-    plt.ylim(0, 2.5)
-    ax.text(0, 0.5, 'True sequence', fontsize=18)
+    plt.ylim(0, 2)
+    ax.text(0, 0.75, 'True sequence', fontsize=18)
         
     
     # Topology plot for predicted sequence
