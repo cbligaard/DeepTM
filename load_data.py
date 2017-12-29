@@ -21,31 +21,16 @@ def data_loading():
     
     # Getting into Pandas format
     Xzipped = list(zip(X,y,len_prot,fold,prot_type,mask))
-    df = pd.DataFrame(Xzipped, columns = ['X','y','len_prot','fold','prot_type','mask'])
-    
-    # Adding an extra column with target y_type for transmembrane and none-transmembrane proteins (shape (?,4) for loss)
-    def setTypeLabels(row):
-        if (row['prot_type'] == 0):
-            protType = [1,0,0,0]        
-        elif (row['prot_type'] == 1):
-            protType = [0,1,0,0]
-        elif (row['prot_type'] == 2):
-            protType = [0,0,1,0]
-        else:
-            protType = [0,0,0,1]
-        return protType
-    
-    df['y_type'] = df.apply(lambda row: setTypeLabels(row),axis=1)
-    
-    
-    # Test set
-    test_set = df[df.fold == 4]
-    
-    # Validation set
-    val_set = df[df.fold == 3]
+    df = pd.DataFrame(Xzipped, columns = ['X', 'y', 'len_prot', 'fold', 'prot_type', 'mask'])
     
     # Training set
     train_set = df[df.fold <= 2]
     
+    # Validation set
+    val_set = df[df.fold == 3]
+    
+    # Test set
+    test_set = df[df.fold == 4]
+
     
     return(train_set, val_set, test_set)
