@@ -13,6 +13,10 @@ The two models were selected as the best CRF-model and the best non-CRF model (b
 Model saved during training for 1,000 epochs at epoch 420 (lowest validation loss).
 The validation loss at this epoch was 1.067, and the accuracies for amino acid locations and type were 95.6 % and 97.1 %, respectively.
 
+The results from *testing* using this model were as follows:
+* Average accuracy for prediction of amino acid locations: 95.8 %
+* Average accuracy for prediction of type: 98.1 %
+
 
 ## lr_0.01_crf_True_batch_32_model
 
@@ -35,3 +39,7 @@ The transition matrix for the CRF looked as follows:
 | **Signal peptide** |  -23.298   |  -30.415   |      2.206       | -10.640   |  -2.370   |
 | **Inside**         |  -8.016    |  -34.591   |     -30.403      |  2.317    | -27.095   |
 | **Outside**        |  -32.954   |  -9.147    |     -25.922      | -27.466   |  1.967    |
+
+The results from *testing* using this model were as follows:
+* Average accuracy for prediction of amino acid locations: 93.9 %
+* Average accuracy for prediction of type: 96.6 %
