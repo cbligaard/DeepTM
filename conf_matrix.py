@@ -27,7 +27,24 @@ def conf_matrix(true_seq, pred_seq, true_type, pred_type):
     print('{:<10} {:<10} {:<10} {:<10} {:<10} {:<10}'.format('Inside', *conf1[3]))
     print('{:<10} {:<10} {:<10} {:<10} {:<10} {:<10}\n'.format('Outside', *conf1[4]))
 
-    
+    # In percentage
+
+    true_count1 = np.bincount(np.concatenate([batch.flatten() for batch in true_seq]).ravel().tolist())
+
+    percentConf1 = []
+    for i in range(len(conf1)):
+        percent = []
+        for j in range(len(conf1[i])):
+            percent.append(conf1[i][j]/true_count1[i]*100)
+        percentConf1.append(percent)
+
+    print('Confusion matrix for classification of amino acid location in percent')
+    print('{:<10} {:<10} {:<10} {:<10} {:<10} {:<10}'.format('', 'In->Out', 'Out->In', 'SP', 'Inside', 'Outside'))
+    print('{:<10} {:<10.2f} {:<10.2f} {:<10.2f} {:<10.2f} {:<10.2f}'.format('In->Out', *percentConf1[0]))
+    print('{:<10} {:<10.2f} {:<10.2f} {:<10.2f} {:<10.2f} {:<10.2f}'.format('Out->In', *percentConf1[1]))
+    print('{:<10} {:<10.2f} {:<10.2f} {:<10.2f} {:<10.2f} {:<10.2f}'.format('SP', *percentConf1[2]))
+    print('{:<10} {:<10.2f} {:<10.2f} {:<10.2f} {:<10.2f} {:<10.2f}'.format('Inside', *percentConf1[3]))
+    print('{:<10} {:<10.2f} {:<10.2f} {:<10.2f} {:<10.2f} {:<10.2f}\n'.format('Outside', *percentConf1[4]))
     
     ### Confusion matrices for prediction 2 (protein type)
     # The actual class is in the rows and predicted class is in the columns.
@@ -50,7 +67,7 @@ def conf_matrix(true_seq, pred_seq, true_type, pred_type):
     print('{:<10} {:<10} {:<10} {:<10} {:<10}\n'.format('Glob', conf2[3][2], conf2[3][1], conf2[3][0], conf2[3][3]))
     
     
-    # Confusion matrix for percentage matrix
+    # In percentage
     true_count = np.bincount(true_type)
             
     percentConf = []
