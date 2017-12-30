@@ -36,7 +36,7 @@ def confidence_plot(seq_pred, seq_true, seq_conf, type_pred, type_true, type_con
     plt.ylim(0,2)
     
     start = 1
-    for k, g in itertools.groupby(seq_pred):
+    for k, g in itertools.groupby(seq_true):
         s = plot_true_type[k]
         stop = len(list(g))
         line = Line2D([start, start+stop], [s[0],s[0]], color = s[1], linewidth = s[2], linestyle = s[3], solid_capstyle="butt")

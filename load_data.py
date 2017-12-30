@@ -15,7 +15,7 @@ def data_loading():
     y = data['y'] # Protein label, size (6733,2000). Labels. 0: Membrane in-out, 1: Membrane out-in, 2: signal peptide, 3: inside, 4: outside.
     mask = data['mask']  # Sequence mask, you will need this to calculate the loss, as you want to mask the padding for proteins smaller than the maximum length, size (6733,2000).
     len_prot = data['len_prot'] # Length of each protein, size (6733)
-    prot_type = data['prot_type'] # Protein type, size (6733). Labels. 0: Signal peptide, 1: Signal peptide with transmembrane, 2: Transmembrane, 3: Globular. 
+    prot_type = data['prot_type'] # Protein type, size (6733). Labels. 0: Signal peptide + globular, 1: Signal peptide + transmembrane, 2: Transmembrane, 3: Globular. 
     fold = data['fold'] # Partition assigned to each protein from 0 to 4, size (6733)
     ids = data['ids'] # Protein ids, size (6733).
     

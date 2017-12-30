@@ -43,10 +43,10 @@ def conf_matrix(true_seq, pred_seq, true_type, pred_type):
         conf2 = tf.Tensor.eval(conf_mat, feed_dict=None, session=None)
     
     print('Confusion matrix for classification of proteins')
-    print('{:<10} {:<10} {:<10} {:<10} {:<10}'.format('', 'TM', 'SP+TM', 'Glob+SP', 'Glob'))
+    print('{:<10} {:<10} {:<10} {:<10} {:<10}'.format('', 'TM', 'SP+TM', 'SP+Glob', 'Glob'))
     print('{:<10} {:<10} {:<10} {:<10} {:<10}'.format('TM', conf2[2][2], conf2[2][1], conf2[2][0], conf2[2][3]))
     print('{:<10} {:<10} {:<10} {:<10} {:<10}'.format('SP+TM', conf2[1][2], conf2[1][1], conf2[1][0], conf2[1][3]))
-    print('{:<10} {:<10} {:<10} {:<10} {:<10}'.format('Glob+SP', conf2[0][2], conf2[0][1], conf2[0][0], conf2[0][3]))
+    print('{:<10} {:<10} {:<10} {:<10} {:<10}'.format('SP+Glob', conf2[0][2], conf2[0][1], conf2[0][0], conf2[0][3]))
     print('{:<10} {:<10} {:<10} {:<10} {:<10}\n'.format('Glob', conf2[3][2], conf2[3][1], conf2[3][0], conf2[3][3]))
     
     
@@ -61,8 +61,8 @@ def conf_matrix(true_seq, pred_seq, true_type, pred_type):
         percentConf.append(percent)
     
     print('Confusion matrix for classification of proteins in percent')
-    print('{:<10} {:<10} {:<10} {:<10} {:<10}'.format('', 'TM', 'SP+TM', 'Glob+SP', 'Glob'))
+    print('{:<10} {:<10} {:<10} {:<10} {:<10}'.format('', 'TM', 'SP+TM', 'SP+Glob', 'Glob'))
     print('{:<10} {:<10.2f} {:<10.2f} {:<10.2f} {:<10.2f}'.format('TM', percentConf[2][2], percentConf[2][1], percentConf[2][0], percentConf[2][3]))
     print('{:<10} {:<10.2f} {:<10.2f} {:<10.2f} {:<10.2f}'.format('SP+TM', percentConf[1][2], percentConf[1][1], percentConf[1][0], percentConf[1][3]))
-    print('{:<10} {:<10.2f} {:<10.2f} {:<10.2f} {:<10.2f}'.format('Glob+SP', percentConf[0][2], percentConf[0][1], percentConf[0][0], percentConf[0][3]))
+    print('{:<10} {:<10.2f} {:<10.2f} {:<10.2f} {:<10.2f}'.format('SP+Glob', percentConf[0][2], percentConf[0][1], percentConf[0][0], percentConf[0][3]))
     print('{:<10} {:<10.2f} {:<10.2f} {:<10.2f} {:<10.2f}\n'.format('Glob', percentConf[3][2], percentConf[3][1], percentConf[3][0], percentConf[3][3]))

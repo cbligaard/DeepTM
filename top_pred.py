@@ -98,13 +98,13 @@ def topology_prediction(true_seq, pred_seq, true_type, pred_type):
     tmsp_corr = type_mat['SP+TM'][1] / true_count[1] * 100
     tmsp_wrong = type_mat['SP+TM'][0] / true_count[1] * 100
     
-    print('Topology prediction results:')
-    print('{:<10} {:<10} {:<10} {:<10} {:<10}'.format('', 'TM', 'SP+TM', 'Glob+SP', 'Glob'))
+    print('Topology prediction results (in percent):')
+    print('{:<10} {:<10} {:<10} {:<10} {:<10}'.format('', 'TM', 'SP+TM', 'SP+Glob', 'Glob'))
     print('{:<10} {:<10.2f} {:<10.2f} {:<10.2f} {:<10.2f}'.format('Correct', tm_corr, tmsp_corr, globsp, glob))
     print('{:<10} {:<10.2f} {:<10.2f} {:<10} {:<10}'.format('Wrong top', tm_wrong, tmsp_wrong, '-', '-'))
     
     # Class 2: TM: No signal peptide, correct N + C, correct TM number + positions
     # Class 1: SP + TM: Signal peptide, correct N + C, correct TM number + positions
-    # Class 0: Globular + SP: Signal peptide, no transmembrane
+    # Class 0: SP + Globular: Signal peptide, no transmembrane
     # Class 3: Globular: No signal peptide, no transmembrane
     
