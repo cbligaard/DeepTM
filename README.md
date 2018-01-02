@@ -1,5 +1,5 @@
 # DeepTM
-### A deep learning setup for prediction of protein transmembrane helices
+### A deep learning setup for prediction of transmembrane proteins
 
 *Project, 02456 Deep Learning, Technical University of Denmark*<br>
 Christina Bligaard Pedersen (s134891), Dea Steenstrup (s123870), Emma Christine Jappe (s102240) & Rasa Audange Muktupavela (s161197)
