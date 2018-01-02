@@ -20,15 +20,15 @@ Furthermore, the outputs a prediction of the protein type.<br>
 1. Globular (Glob)
 
 #### Model
-The model of choice for this problem was a bidirectional recurrent neural network (RNN) with a long short-term memory (LSTM) cell followed by a dense layer and either a conditional random field (CRF) or simply a softmax function followed by an argmax. This part of the model is used for topology prediction.
-On top of this model, we average the probabilities of each category over the entire amino acid sequence length and have another two dense layers, and finally we use the sigmoid function to predict the protein type.
+The model of choice for this problem was a bidirectional recurrent neural network (RNN) with a long short-term memory (LSTM) cell followed by a dense layer and either a conditional random field (CRF) or simply a softmax function followed by an argmax. This part of the model is used for predicting the location of each amino acid.
+On top of this model, we average the probabilities of each category over the entire amino acid sequence length and have a dense layer, and finally we use the softmax and argmax functions to predict the protein type.
 
 ![Model setup](images/model.png?raw=true "Model setup: Red boxes represent the layers of the neural network, while the grey boxes represent functions used to derive the actual predictions.")
 
-The loss function for the first part of the prediction (protein topology) is '-log_likelihood' if the CRF is used, and the 'weighted cross-entropy loss for a sequence of logits' if not. The loss function for the second part of the prediction (protein type) is the 'softmax cross entropy'. In the end, the two losses are summed and the Adam algorithm is used as the optimizer to minimize the loss. 
+The loss function for the first part of the prediction (amino acid locations) is '-log_likelihood' if the CRF is used, and the 'weighted cross-entropy loss for a sequence of logits' if not. The loss function for the second part of the prediction (protein type) is the 'sparse softmax cross entropy'. In the end, the two losses are summed and the ADAM algorithm is used as the optimizer to minimize the loss. 
 
 #### Data
-The data used for this project was the TOPCONS2-data downloaded from [here](http://topcons.net/pred/download/). The data consisted of 6,856 proteins, but to ensure computational efficiency, we removed proteins longer than 2,000 amino acids (n = 123), and as a result we have a dataset of 6,733 proteins in total. These were divided into five partitions maintaining the same proportion of each class and the same length distribution as the full dataset. Proteins with more than 30 % homology were placed within a single partition (homology partitioning). The dataset contained 2,171 SP+Glob-proteins, 718 SP+TM, 313 TM and 3,531 Glob.
+The data used for this project was the TOPCONS2-data downloaded from [here](http://topcons.net/pred/download/). The data consisted of 6,856 proteins, but to ensure computational efficiency, we removed proteins longer than 2,000 amino acids (n = 123), and as a result we have a dataset of 6,733 proteins in total. These were divided into five partitions maintaining the same proportion of each class and the same length distribution as the full dataset. Proteins with more than 30 % homology were placed within a single partition (homology partitioning). The full dataset contained 2,171 SP+Glob-proteins, 718 SP+TM, 313 TM and 3,531 Glob.
 
 #### Training, validating and testing
 For training, validating and testing the model, a setup was made in which 3 partitions were used for training, 1 was used for validation, and 1 was used for testing. During training, which typically ran for 1,000 epochs, the model was validated every 10 epochs - and each time the validation loss decreased, the model was saved. 
