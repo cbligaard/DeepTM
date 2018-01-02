@@ -25,7 +25,7 @@ On top of this model, we average the probabilities of each category over the ent
 
 ![Model setup](images/model.png?raw=true "Model setup: Red boxes represent the layers of the neural network, while the grey boxes represent functions used to derive the actual predictions.")
 
-The loss function for the first part of the prediction (amino acid locations) is '-log_likelihood' if the CRF is used, and the 'weighted cross-entropy loss for a sequence of logits' if not. The loss function for the second part of the prediction (protein type) is the 'sparse softmax cross entropy'. In the end, the two losses are summed and the ADAM algorithm is used as the optimizer to minimize the loss. 
+The loss function for the first part of the prediction (amino acid locations) is '-log likelihood' if the CRF is used, and the 'weighted cross-entropy loss for a sequence of logits' if not. The loss function for the second part of the prediction (protein type) is the 'sparse softmax cross entropy'. In the end, the two losses are summed and the ADAM algorithm is used as the optimizer to minimize the loss. 
 
 #### Data
 The data used for this project was the TOPCONS2-data downloaded from [here](http://topcons.net/pred/download/). The data consisted of 6,856 proteins, but to ensure computational efficiency, we removed proteins longer than 2,000 amino acids (n = 123), and as a result we have a dataset of 6,733 proteins in total. These were divided into five partitions maintaining the same proportion of each class and the same length distribution as the full dataset. Proteins with more than 30 % homology were placed within a single partition (homology partitioning). The full dataset contained 2,171 SP+Glob-proteins, 718 SP+TM, 313 TM and 3,531 Glob.
