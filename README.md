@@ -49,7 +49,7 @@ The data file contains 7 matrices: 1) BLOSUM62-encoded proteins (matrix size 673
 
 
 #### Scripts for training and testing the model
-1. training.py (maybe also as ipython notebook)
+1. training.py
 1. model.py
 1. minibatches.py
 1. confidence_plot.py
